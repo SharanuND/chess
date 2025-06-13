@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="game-setup" class="setup-section">
+            <h2>Start a New Game</h2>
+            <button onclick="createGame()">Create New Game</button>
+            <div class="join-game">
+                <input type="text" id="game-id" placeholder="Enter Game ID">
+                <button onclick="joinGame()">Join Game</button>
+            </div>
+        </div>
+
+        <div id="game-board" class="board-container" style="display: none;">
+            <div class="game-info">
+                <p>Game ID: <span id="current-game-id"></span></p>
+                <p>Your Color: <span id="player-color"></span></p>
+                <p>Current Turn: <span id="current-turn">White</span></p>
+            </div>
+            <div class="chess-board"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
